@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+  <name>Firebird</name>
+  <classpath>C:\Users\user\Desktop\NetBeansProjects\ArmagedonExcel\library\jaybird-5.0.1.java11.jar</classpath>
+  <driver>org.firebirdsql.jdbc.FBDriver</driver>
+  <username>SYSDBA</username>
+  <password>masterkey</password>
+  <url>jdbc:firebirdsql://192.168.0.3/C:/Quatro14/ArqSql/MOISES_FINAL.AX1</url>
+  <database></database>
+  <savePassword>true</savePassword>
+  <serverAddress></serverAddress>
+</jdbcDataAdapter>

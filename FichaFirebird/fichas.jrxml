@@ -1,0 +1,2430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.3.final using JasperReports Library version 6.20.3-415f9428cffdb6805c6f85bbb29ebaf18813a2ab  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cliente" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Firebird"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="479"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT 
+        (select MAX(cli_fichao.FCL_RAZAO) from cli_fichao where cli_fichao.FCL_COD = clientes.K_COD )  
+		as FCL_RAZAO, 
+	(select MAX(cli_fichao.FCL_KNOMEVEND) from cli_fichao where cli_fichao.FCL_COD = clientes.K_COD ) 
+		as vendedor,
+	(select MAX(cli_fichao.FCL_PROSPECTOR) from cli_fichao where cli_fichao.FCL_COD = clientes.K_COD ) 
+		as prospector,
+	(select MAX(cli_fichao.FCL_ATENDENTE) from cli_fichao where cli_fichao.FCL_COD = clientes.K_COD ) 
+		as atendente, 
+      clientes.K_COD as codigo, clientes.K_CGCFIS as cgccli, clientes.K_IEFIS as iecli, clientes.K_SUFRAMA as suframa,
+      clientes.K_RAZAO as razaocli, clientes.K_APELIDO as apelidoCli , clientes.K_EMBBOBINA as bobina,
+      clientes.K_EMBDISCO as disco, clientes.K_EMAIL as emailcli, clientes.K_FONECON as fonecli, 
+      clientes.K_HOMEPAGE as sitecli, clientes.K_BIP as bip, clientes.K_CODMUNICIPIO as ibgecli,
+      clientes.K_CODMUNENT as ibgeent, clientes.K_ENDFIS as endfiscli, clientes.K_NUMFIS as numfiscli,
+      clientes.K_COMPLFIS as complifiscli, clientes.K_BAIFIS as bairrofiscli, clientes.K_CEPFIS as cepfiscli, 
+      clientes.K_CEPFIS1 as cepfis1cli, clientes.K_MUNFIS as munfiscli, clientes.K_ESTFIS as estfiscli, 
+      clientes.K_ENDCOB as endcobcli, clientes.K_NUMCOB as numcob, clientes.K_COMPLCOB as complcob, 
+      clientes.K_BAICOB as baicob, clientes.K_CEPCOB as cepcob, clientes.K_CEPCOB1 cepcob1, 
+      clientes.K_MUNCOB as muncob1, clientes.K_ESTCOB as estcob1, clientes.K_ENDENT as endent, 
+      clientes.K_NUMENT as nument, clientes.K_COMPLENT as complent, clientes.K_BAIENT as baient, 
+      clientes.K_CEPENT as cepent, clientes.K_CEPENT1 as cepent1, clientes.K_MUNENT as munent1, 
+      clientes.K_ESTENT as estent, transpor.K_CGCFIS as cgctra, transpor.K_IEFIS as ietra, 
+      transpor.K_RAZAO as razaotra, transpor.K_APELIDO as apelidotra, transpor.K_HOMEPAGE as sitetra, 
+      transpor.K_FONECON as fonetra, transpor.K_EMAIL as emailtra, transpor.K_CODMUNICIPIO as ibgetra, 
+      transpor.K_ENDFIS as endtra, transpor.K_NUMFIS as numtra, transpor.K_COMPLFIS as compltra, 
+      transpor.K_BAIFIS as bairrotra, transpor.K_CEPFIS as ceptra, transpor.K_CEPFIS1 as cep1tra, 
+      transpor.K_MUNFIS as muntra, transpor.K_ESTFIS as esttra
+      
+      
+      from clientes full join transpor on clientes.K_CODTRANS = transpor.K_COD 
+      
+      ORDER BY codigo ASC]]>
+	</queryString>
+	<field name="FCL_RAZAO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MAX"/>
+		<property name="com.jaspersoft.studio.field.label" value="FCL_RAZAO"/>
+	</field>
+	<field name="VENDEDOR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MAX"/>
+		<property name="com.jaspersoft.studio.field.label" value="VENDEDOR"/>
+	</field>
+	<field name="PROSPECTOR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MAX"/>
+		<property name="com.jaspersoft.studio.field.label" value="PROSPECTOR"/>
+	</field>
+	<field name="ATENDENTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MAX"/>
+		<property name="com.jaspersoft.studio.field.label" value="ATENDENTE"/>
+	</field>
+	<field name="CODIGO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_COD"/>
+		<property name="com.jaspersoft.studio.field.label" value="CODIGO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CGCCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CGCFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="CGCCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="IECLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_IEFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="IECLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="SUFRAMA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_SUFRAMA"/>
+		<property name="com.jaspersoft.studio.field.label" value="SUFRAMA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="RAZAOCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_RAZAO"/>
+		<property name="com.jaspersoft.studio.field.label" value="RAZAOCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="APELIDOCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_APELIDO"/>
+		<property name="com.jaspersoft.studio.field.label" value="APELIDOCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="BOBINA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_EMBBOBINA"/>
+		<property name="com.jaspersoft.studio.field.label" value="BOBINA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="DISCO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_EMBDISCO"/>
+		<property name="com.jaspersoft.studio.field.label" value="DISCO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="EMAILCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_EMAIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="EMAILCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="FONECLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_FONECON"/>
+		<property name="com.jaspersoft.studio.field.label" value="FONECLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="SITECLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_HOMEPAGE"/>
+		<property name="com.jaspersoft.studio.field.label" value="SITECLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="BIP" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_BIP"/>
+		<property name="com.jaspersoft.studio.field.label" value="BIP"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="IBGECLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CODMUNICIPIO"/>
+		<property name="com.jaspersoft.studio.field.label" value="IBGECLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="IBGEENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CODMUNENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="IBGEENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ENDFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ENDFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="ENDFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="NUMFISCLI" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="K_NUMFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="COMPLIFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_COMPLFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="COMPLIFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="BAIRROFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_BAIFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="BAIRROFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPFIS1CLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPFIS1"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPFIS1CLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="MUNFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_MUNFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="MUNFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ESTFISCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ESTFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTFISCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ENDCOBCLI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ENDCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="ENDCOBCLI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="NUMCOB" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="K_NUMCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMCOB"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="COMPLCOB" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_COMPLCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="COMPLCOB"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="BAICOB" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_BAICOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="BAICOB"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPCOB" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPCOB"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPCOB1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPCOB1"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPCOB1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="MUNCOB1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_MUNCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="MUNCOB1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ESTCOB1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ESTCOB"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTCOB1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ENDENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ENDENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="ENDENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="NUMENT" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="K_NUMENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="COMPLENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_COMPLENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="COMPLENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="BAIENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_BAIENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="BAIENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CEPENT1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPENT1"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPENT1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="MUNENT1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_MUNENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="MUNENT1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="ESTENT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ESTENT"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTENT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CLIENTES"/>
+	</field>
+	<field name="CGCTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CGCFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="CGCTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="IETRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_IEFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="IETRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="RAZAOTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_RAZAO"/>
+		<property name="com.jaspersoft.studio.field.label" value="RAZAOTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="APELIDOTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_APELIDO"/>
+		<property name="com.jaspersoft.studio.field.label" value="APELIDOTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="SITETRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_HOMEPAGE"/>
+		<property name="com.jaspersoft.studio.field.label" value="SITETRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="FONETRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_FONECON"/>
+		<property name="com.jaspersoft.studio.field.label" value="FONETRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="EMAILTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_EMAIL"/>
+		<property name="com.jaspersoft.studio.field.label" value="EMAILTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="IBGETRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CODMUNICIPIO"/>
+		<property name="com.jaspersoft.studio.field.label" value="IBGETRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="ENDTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ENDFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="ENDTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="NUMTRA" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="K_NUMFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="COMPLTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_COMPLFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="COMPLTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="BAIRROTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_BAIFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="BAIRROTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="CEPTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEPTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="CEP1TRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_CEPFIS1"/>
+		<property name="com.jaspersoft.studio.field.label" value="CEP1TRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="MUNTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_MUNFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="MUNTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<field name="ESTTRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="K_ESTFIS"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTTRA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TRANSPOR"/>
+	</field>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="300" y="65" width="60" height="15" uuid="6da365c2-5d2e-44a5-9770-06bfdef7a3d9">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I.E/RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="65" width="60" height="15" uuid="8c93e200-25da-4e9e-9621-64b61d76ffd3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ/CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="28" width="49" height="15" uuid="2e79d957-161d-4d6b-a0d2-786a2df96704">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="39" y="28" width="94" height="15" uuid="06e1f550-f77a-4dfe-a138-ef159b8821bd">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="28" width="260" height="15" uuid="1f375b06-1e67-4eb6-8e22-4101f58b7e17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMAÇÕES PARA FATURAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="88" width="60" height="15" uuid="2ea06897-67aa-4dfb-926d-36768b371620">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZÃO SOCIAL ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="111" width="60" height="15" uuid="78e0cc23-8901-4559-9415-c21773f47b7b">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="111" width="60" height="15" uuid="f52fd0d0-c935-4cfb-8dac-83142af008a5">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUFRAMA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="134" width="80" height="15" uuid="03ac03ba-9ade-4eb7-9975-240b8d570e09">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL CONTATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="134" width="60" height="15" uuid="f6c55c58-29d9-4dbb-9970-878f65a30f0a">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL. CONTATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="226" width="575" height="13" uuid="527a7f2f-ddde-4fcd-a84b-5430eb62c78a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO FISCAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="239" width="60" height="15" uuid="3ec044d9-4bf7-4c45-a68e-ab5c73cc8eeb">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOGRADOURO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="239" width="60" height="15" uuid="3139e56f-6c46-4b00-985b-7c63dd807249">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="308" width="60" height="15" uuid="24f5fda1-b7f3-4d44-9868-accfd6e483f9">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPLEMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="262" width="60" height="15" uuid="eeb632da-0abe-4004-aea2-2ef856a3673b">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="262" width="60" height="15" uuid="ba0e6e67-1b85-41f1-b172-14c67689be55">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="285" width="60" height="15" uuid="2b254117-2741-46e6-b6c4-3665eaa6cbbd">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="285" width="60" height="15" uuid="252edd70-d89e-4238-980e-a3e09edfd705">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="308" width="60" height="15" uuid="1bb7546e-6721-4647-9aea-d36a5262f8f4">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO IBGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="331" width="575" height="13" uuid="d78dd39e-2365-45fe-9352-81f57360ba56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO DE COBRANÇA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="344" width="60" height="15" uuid="3c72a8fe-3338-4151-aab0-0c2677ebaedf">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOGRADOURO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="344" width="60" height="15" uuid="8c35d2d8-1cb8-48ef-aa2c-a5ced8c1eea4">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="413" width="60" height="15" uuid="199bbcda-39d7-4a92-a4aa-58a86b45055c">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPLEMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="367" width="60" height="15" uuid="fa1c1d2a-ded7-4cbf-a06b-c86efa674534">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="367" width="60" height="15" uuid="475d0afa-1fd3-4c67-8a62-87312f9f7f38">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="390" width="60" height="15" uuid="2c75edba-f881-4699-811e-bb01b8fdb0c0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="390" width="60" height="15" uuid="0b18e937-664e-418e-964f-ba6f6ad2f437">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="413" width="60" height="15" uuid="287fca89-aa67-4910-ab96-e5580114defc">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO IBGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="436" width="575" height="13" uuid="c644aadf-1276-4fa9-91e3-5dc80cda6e19">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO DE ENTREGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="449" width="60" height="15" uuid="bd2c6a0f-befe-4c79-9d5c-dc07d489390c">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOGRADOURO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="449" width="60" height="15" uuid="4dcec4fc-e906-4676-804d-05db2a76598d">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="517" width="60" height="15" uuid="6d135258-23e4-4ffa-91f7-ce376269bb6d">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPLEMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="471" width="60" height="15" uuid="96801984-2936-497b-8e00-bbb2ed47820a">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="471" width="60" height="15" uuid="6898da0a-deeb-4e64-9c02-988de5da2db7">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="494" width="60" height="15" uuid="94671418-2630-4520-a3ee-336bd110adb2">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="494" width="60" height="15" uuid="e86bb2e1-85f7-4f30-8710-974fa5c73058">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="517" width="60" height="15" uuid="eb67d58b-b4ad-4790-94af-e671cf492393">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO IBGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="50" width="575" height="15" uuid="49eb0f09-a1f8-4bd4-98d8-746afc5600a7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(CASO HAJA MAIS DE UM CNPJ PARA FATURAMENTO, CONFRMAR ANTES DE CADASTRAR E PROVIDENCIAR O CADASTRO CORRETAMENTE)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="111" width="250" height="15" uuid="cad357a6-69a4-4ba4-b518-ae6089709f1e">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APELIDOCLI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-20" y="-10" width="595" height="38" uuid="f7ad46a0-2e3f-4580-90e1-d40d8b9d497a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Book Antiqua" size="24"/>
+				</textElement>
+				<text><![CDATA[Ficha Cadastral]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="-10" width="80" height="20" uuid="a7f4d741-80a3-4ac9-9277-e59e0a86b408"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[fundaluminio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="239" width="320" height="15" uuid="d3171943-f2e8-4dd6-8df4-72f60e6dd229">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENDFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="262" width="240" height="15" uuid="ffc63dc6-9bbe-4d81-bd71-a36eed89aa5a">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BAIRROFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="285" width="240" height="15" uuid="880ebaa0-2603-4ba4-9cd2-85d3146fcfea">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MUNFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="111" width="205" height="15" uuid="29fe3722-98d0-46f3-8b25-e6b21f4d1e46">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUFRAMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="65" width="250" height="15" uuid="b37a9274-3341-4201-a1f4-22214bf9a5b0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CGCCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="65" width="205" height="15" uuid="d8524c8b-f91b-42fe-abd4-8bcd8b0d6c19">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IECLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="262" width="100" height="15" uuid="3c448fcd-7517-48e7-aafe-463f0f14c242">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="262" width="85" height="15" uuid="6f2a21a2-fed9-4e66-bc4d-44d2efa563db">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPFIS1CLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="262" width="30" height="15" uuid="0a6b3360-2ce6-4de3-906b-6740ff870bd6">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="285" width="215" height="15" uuid="0b0c2007-c131-4b85-a9ee-c834d26bdb79">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESTFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="449" width="320" height="15" uuid="4d003e3f-9af9-4389-8bf3-218fab4b01b7">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENDENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="471" width="240" height="15" uuid="4334e146-ca44-48a8-b7cb-b124c7f91dfa">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BAIENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="494" width="240" height="15" uuid="73cb0480-37b0-4f9e-980c-8777a4ee8bf3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MUNENT1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="494" width="215" height="15" uuid="9fcdff93-8586-4569-abf7-aea3327a5e65">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESTENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="471" width="100" height="15" uuid="62d11f2a-2f55-4297-982b-cf2bf8c81b83">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="471" width="30" height="15" uuid="2d3f6f6b-2284-40ba-a1b2-eb80cec59851">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="471" width="85" height="15" uuid="c6ead7a9-3280-46e2-8158-6238551ead0e">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPENT1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="367" width="240" height="15" uuid="446a5905-30d6-4172-9007-f2e414a78c09">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BAICOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="344" width="320" height="15" uuid="cc640a6b-d190-4a68-b090-97f252d9bfc3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENDCOBCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="390" width="240" height="15" uuid="59fb3172-060f-4f64-99c4-ba00abd2a99b">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MUNCOB1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="390" width="215" height="15" uuid="59845513-b332-4758-907a-4ada82c2799f">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESTCOB1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="367" width="100" height="15" uuid="4941e4b3-0607-4788-ba90-cc49934ec9e0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPCOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="367" width="30" height="15" uuid="400abf86-b60c-44e8-b1e1-e463391c6a65">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="367" width="85" height="15" uuid="86c2d40b-676e-4f4d-b8d7-2e4b7c4af497">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPCOB1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="134" width="230" height="15" uuid="ef8e378a-3c17-4424-8273-bc943b91b673">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAILCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="239" width="135" height="15" uuid="48d9ff94-547d-41f1-9dc5-6a34803b1e30">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="344" width="135" height="15" uuid="f4f62166-bb1f-4265-8e97-aef4965956cc">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMCOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="449" width="135" height="15" uuid="e4a266b6-23c9-4257-bee5-ee9b723c477f">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="413" width="215" height="15" uuid="8cd1f609-2b06-4042-a976-06f7fba46d73">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBGECLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="308" width="215" height="15" uuid="39388e1e-a7da-4cfc-b795-65d2f874e743">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBGECLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="517" width="215" height="15" uuid="8fcb4f85-49df-4e16-a249-4d19d1a80cc9">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBGEENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="308" width="240" height="15" uuid="de365ab0-dfde-4211-8fb4-65098680d847">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPLIFISCLI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="413" width="240" height="15" uuid="da41d1e8-5b09-461c-b1e3-fb265b6febf0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPLCOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="517" width="240" height="15" uuid="2532f1c2-3fa1-4126-bba6-12e276fea32a">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPLENT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="134" width="205" height="15" uuid="5c61e5a4-90cb-4d13-89d1-fab578b95d67">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FONECLI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="157" width="80" height="15" uuid="453ac966-85ef-415a-8070-7084ce923fd4">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENDEREÇO WEB]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="157" width="230" height="15" uuid="38f44c6c-c3ae-4c6e-b82f-b7f18483ad02">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SITECLI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="157" width="60" height="15" uuid="b18ca603-815f-4372-a2fd-036bade2dda5">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL. CONTATO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="157" width="205" height="15" uuid="21b7b386-e7e7-4126-942a-86a883c7e084">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="539" width="575" height="13" uuid="0b6838a8-4d4f-49b6-9db4-eaaa362c5a8c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRANSPORTADORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="552" width="60" height="15" uuid="7ff5e507-405a-41a0-bf77-07f70604aa14">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="552" width="240" height="15" uuid="a0dfda18-6358-419c-bf32-f4bfe88b7a82">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CGCTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="552" width="60" height="15" uuid="0a4e98f8-ac65-424c-898e-5d83429cec68">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I.E]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="552" width="215" height="15" uuid="cbbbc8f2-1781-4445-9461-b12853a59b75">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IETRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="575" width="60" height="15" uuid="b49adab8-74d5-4ef0-b9dd-9ec793c59a92">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZÃO SOCIAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="575" width="240" height="15" uuid="8b971982-e574-46c6-b731-c972fcac75b2">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RAZAOTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="575" width="60" height="15" uuid="4b361e6b-7da5-4072-92e7-88d391892800">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELIDO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="575" width="215" height="15" uuid="f76827dd-2ec3-4cbc-aa3e-b44a5a6759cf">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APELIDOTRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="598" width="215" height="15" uuid="521b34c8-69b2-48db-b2db-c9ece84cf117">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FONETRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="598" width="60" height="15" uuid="01d450f6-2808-4d6a-9eee-f6b90946c9b6">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="598" width="240" height="15" uuid="c2442b7c-c54b-45dc-b257-b877a0dfe97c">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SITETRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="598" width="60" height="15" uuid="5624183b-8390-46fb-b87c-65ea026821c0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL. CONTATO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-10" y="621" width="60" height="15" uuid="10b833ec-06ba-406d-aeee-6be39a35bd1b">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="621" width="240" height="15" uuid="7041d57d-ef70-4fa9-ada5-b0e93e2b98bd">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAILTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="621" width="60" height="15" uuid="ebb727e7-0198-463a-8584-4ae63dc6deb3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO IBGE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="621" width="215" height="15" uuid="08ca1efc-369c-472f-a6cc-f60ff75d3eb0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IBGETRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="644" width="60" height="15" uuid="ad34d961-ee2a-4cd0-8122-f8ac045cf35d">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOGRADOURO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="644" width="60" height="15" uuid="d3cece3e-3044-4f57-b08a-0a81b49c3470">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="644" width="200" height="15" uuid="43323ff6-0aa6-4edf-beab-05026b9ebcb7">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENDTRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="644" width="60" height="15" uuid="1dde15c3-a505-4b61-ab3b-f315deb73b36">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="644" width="60" height="15" uuid="1b9fac69-0b12-4fea-90e0-dd36a3510863">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPLEMENTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="644" width="135" height="15" uuid="16ce0255-62f7-47d2-a763-7d0225bc4281">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPLTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="667" width="60" height="15" uuid="8a622e98-40eb-4199-9ce9-798f961b75fd">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BAIRRO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="667" width="240" height="15" uuid="7e1961a1-5c65-4b55-8e12-56968c9a3116">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BAIRROTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="667" width="60" height="15" uuid="3c451d4c-a16a-4c8d-9f29-63ca976f7c0a">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="667" width="99" height="15" uuid="1f20eeb1-5d51-4166-8c11-78c0c4e674e0">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEPTRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="667" width="31" height="15" uuid="e1f33713-31d1-4ae6-aa10-08675f91ce22">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["-"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="667" width="85" height="15" uuid="30ad210f-5736-4507-b670-fcfea50216b3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CEP1TRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="690" width="215" height="15" uuid="6030d925-857b-46ad-8066-87763d745bf3">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ESTTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="690" width="60" height="15" uuid="9910e8c8-31d5-42b0-b660-470aec29a3b1">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="690" width="240" height="15" uuid="c1f29941-d7bb-4123-8caa-4d0d5b48db71">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MUNTRA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="690" width="60" height="15" uuid="6ab213c2-6e3b-4f6e-a77a-b131c3e8d013">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="88" width="514" height="15" uuid="f672b6ab-0bb2-4a9a-bd07-1277a4d30223">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RAZAOCLI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="180" width="60" height="15" uuid="c308ef57-657f-4206-9375-30e7517e9bec">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMB. BOBINA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="180" width="61" height="15" uuid="f5917c17-4464-46df-8608-50531c863459">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMB. DISCO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="180" width="61" height="15" uuid="c3590133-23e4-48f3-9c48-86c3a65e74ce">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMB. CHAPA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="180" width="131" height="15" uuid="83e03d16-4484-4856-a8e5-5cd1ca2784a6">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BOBINA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="180" width="131" height="15" uuid="8aff01ff-7546-439e-8472-0a29e1848739">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="180" width="131" height="15" uuid="7fd4b29a-0e47-4cf1-83cb-1f57110b2fb8">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-10" y="203" width="60" height="15" uuid="328d9ee0-aeae-4e05-9592-da89a5dc0b36">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENDEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="203" width="61" height="15" uuid="8f1623be-f891-4566-8cf5-0ad44299c495">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROSPECTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="203" width="61" height="15" uuid="09b4dc25-518e-4094-9961-1676ada8a9b7">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENDENTE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="203" width="131" height="15" uuid="ef921e32-5918-4460-bf05-eb2a9b2e6053">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VENDEDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="203" width="131" height="15" uuid="40d84634-d953-4b7d-bff7-894c235e7a9c">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROSPECTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="203" width="131" height="15" uuid="09dbb03e-9974-4021-80ea-95f881274a85">
+					<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Cadastro.jrdax"/>
+					<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.75" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ATENDENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
